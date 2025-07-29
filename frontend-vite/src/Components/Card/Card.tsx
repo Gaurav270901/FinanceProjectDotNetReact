@@ -12,11 +12,18 @@ interface Props{
 
 export const Card = ({id , searchResult,onPortfolioCreate}: Props) => {
   return (
-    <div className = "card">
-      <h1 className="title">{searchResult.name}</h1>
-      <h2 className="ticker">{searchResult.symbol}</h2>
-      <p className="price">currency: ${searchResult.currency}</p>
-      <p className="info"> shortname : ${searchResult.exchangeShortName}</p>
+    <div
+      className="flex flex-col items-center justify-between w-full p-6 bg-slate-100 rounded-lg md:flex-row"
+      key={id}
+      id={id}
+    >
+      <h2 className="font-bold text-center text-veryDarkViolet md:text-left">
+        {searchResult.name} ({searchResult.symbol})
+      </h2>
+      <p className="text-veryDarkBlue">{searchResult.currency}</p>
+      <p className="font-bold text-veryDarkBlue">
+        {searchResult.exchangeShortName} - {searchResult.stockExchange}
+      </p>
 
       <AddPortfolio onPortfolioCreate={onPortfolioCreate} symbol={searchResult.symbol}/>
     </div>

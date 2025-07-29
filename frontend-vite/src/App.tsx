@@ -6,6 +6,8 @@ import Search from './Components/Search/Search';
 import type { CompanySearch } from './company';
 import { searchCompanies } from './api';
 import ListPortfolio from './Components/Portfolio/ListPortfolio/ListPortfolio';
+import Navbar from './Components/Navbar/Navbar';
+import Hero from './Components/Hero/Hero';
 
 function App() {
    const [search , setSearch] = React.useState<string>('');
@@ -50,11 +52,13 @@ function App() {
         console.log("Search results: ", result);
       };
   return (
-    <div className="App">
+    <>
+      <Navbar/>
+      <Hero/>
       <ListPortfolio portfolioValues={portfolioValues} onPortfolioDelete={onPortfolioDelete}/>
       <Search onSubmitSearch = {onSearchSubmit} search={search} handleSearchChange={handleSearchChange}/>
      <CardList searchResult = {searchResults} onPortfolioCreate={onPortfolioCreate}/>
-    </div>
+    </>
   );
 }
 

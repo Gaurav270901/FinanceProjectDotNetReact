@@ -9,7 +9,7 @@ interface Props {
   onPortfolioCreate: (e: SyntheticEvent) => void;
 }
 const CardList = ({searchResult,onPortfolioCreate}: Props) => {
-  return (<div>
+  return (<>
     {searchResult.length > 0 ? (
       searchResult.map((company, index) => (
         <Card
@@ -23,7 +23,7 @@ const CardList = ({searchResult,onPortfolioCreate}: Props) => {
           No results!
         </p>
       )}
-  </div>
+  </>
    
   ) 
 }
